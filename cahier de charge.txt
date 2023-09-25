@@ -1,0 +1,29 @@
+
+
+    1- Gestion des utilisateurs : Permettre aux utilisateurs de s'inscrire, de se connecter et de gérer leur profil. 
+	Vous pouvez implémenter des fonctionnalités telles que l'authentification, la réinitialisation de mot de passe et la gestion des autorisations.
+
+    2- Publication d'articles : Permettre aux utilisateurs autorisés de créer, modifier et supprimer des articles. 
+	Vous pouvez inclure des fonctionnalités telles que la rédaction de contenu, l'ajout d'images, la mise en forme du texte, 
+	la catégorisation des articles, etc.
+
+    3- Affichage des articles : Afficher les articles sur le site, avec une page d'accueil mettant en évidence les articles récents 
+	ou les articles en vedette. Vous pouvez mettre en place des vues pour afficher la liste des articles, les détails d'un article spécifique 
+	et la pagination des articles.
+
+    4- Likes et Commentaires : Permettre aux utilisateurs de liker et commenter les articles. Vous pouvez ajouter des fonctionnalités pour la soumission de commentaires,
+	 l'affichage des commentaires associés à un article.
+
+    5- Recherche et filtrage : Mettre en place des fonctionnalités de recherche pour permettre aux utilisateurs de rechercher des articles par mots-clés, 
+	catégories ou tags. Vous pouvez également inclure des options de filtrage pour trier les articles par date, popularité, etc.
+
+    6- Système de tags : Permettre aux utilisateurs de définir des tags pour les articles, 
+	ce qui facilite la recherche et la catégorisation des articles connexes.
+
+    7- Système de notifications : Mettre en place un système de notifications pour alerter les utilisateurs des nouveaux articles,
+	 des commentaires sur leurs articles ou des interactions liées à leur profil.
+
+    8- Intégration des médias sociaux : Permettre aux utilisateurs de partager des articles sur les réseaux sociaux tels que 
+	Facebook, Twitter, etc. Cela peut aider à promouvoir votre contenu et à augmenter la visibilité de votre blog.
+   
+    9- Analytics : Intégrer des outils d'analyse pour suivre les statistiques du blog, telles que le nombre de vues par article etc.

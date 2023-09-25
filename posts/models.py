@@ -1,6 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 User = get_user_model() #recupere le model d'utilisateur de notre application
 
@@ -14,7 +15,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="auteur")
     date = models.DateTimeField(auto_now=True, verbose_name="date de creation")
     published = models.BooleanField(default=False, verbose_name="Publié")
-    content = models.TextField()
+    content = models.TextField(verbose_name="Contenu")
     
     class Meta:
         ordering = ["-date"] #Permet d'ordonne les article publier par les plus rescent
@@ -31,3 +32,11 @@ class BlogPost(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+        
+        
+    """Avec les vue fondees sur les classes lorsque l'on utilise CreateView pour cela ne sais pas ou rediriger 
+        apres la creation et donc nous devons definir cette methode pour specifier ou la redirection dois se faire
+        et prends aussi en compte updateview.."""
+    def get_absolute_url(self):
+        return reverse("home")
+    

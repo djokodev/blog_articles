@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Accueil</title>
+{% endblock title %}
+
+
+{% block content %}
+
+    <h1>Discover</h1>
+
+    {% for post in posts  %}
+    
+        <article>
+
+            <h2>{{ post.title }}</h2>
+
+            <h5>Publié par <span><i>{{ post.author.username }}</i></span> le {{ post.date|date:'j F Y' }} à {{ post.date|time:'H:i:s' }}</h5>
+             <!--filtrage sur la date (juste une facon d'afficher cela)-->
+
+            <p>{{ post.content|safe|truncatewords:50 }}</p> <!--***Safe*** : permet d'interpretter 
+                les balises html
+                qui pourai etre contenu dans notre article genre si on ne met pas safe et que 
+                l'on a des balise html dans notre contenu ils seront inclu directement sous forme
+                 de text dans notre article
+                ***truncatewords***: permet de tronquer le contenu de notre article
+                dans notre exemple il s'agit d'afficher les 40 premiers mots de l'article-->
+
+        </article>
+    
+    {% endfor %}
+
+    {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Précédent</a>
+            {% endif %}
+    
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <span class="current-page">{{ num }}</span>
+                {% else %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Suivant</a>
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+{% endblock content %}
