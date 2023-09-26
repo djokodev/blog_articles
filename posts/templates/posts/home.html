@@ -18,6 +18,12 @@
             <h5>Publié par <span><i>{{ post.author.username }}</i></span> le {{ post.date|date:'j F Y' }} à {{ post.date|time:'H:i:s' }}</h5>
              <!--filtrage sur la date (juste une facon d'afficher cela)-->
 
+            {% if post.picture %}
+             <img src="{{ post.picture.url }}" alt="image de l'article">
+            {% else %}
+                    <p>Aucune image disponible</p>
+            {% endif %}
+
             <p>{{ post.content|safe|truncatewords:50 }}</p> <!--***Safe*** : permet d'interpretter 
                 les balises html
                 qui pourai etre contenu dans notre article genre si on ne met pas safe et que 
@@ -25,6 +31,16 @@
                  de text dans notre article
                 ***truncatewords***: permet de tronquer le contenu de notre article
                 dans notre exemple il s'agit d'afficher les 40 premiers mots de l'article-->
+
+
+                <a href="{% url 'detail_post' slug=post.slug %}">Lire d'article</a>
+
+                {% if request.user.is_authenticated %}
+    
+                    <a href="{% url 'update_post' slug=post.slug %}">Editer</a>
+                    <a href="{% url 'delete_post' slug=post.slug %}">Supprimer</a>
+                
+                {% endif %}
 
         </article>
     

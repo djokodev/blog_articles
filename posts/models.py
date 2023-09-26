@@ -16,6 +16,7 @@ class BlogPost(models.Model):
     date = models.DateTimeField(auto_now=True, verbose_name="date de creation")
     published = models.BooleanField(default=False, verbose_name="Publié")
     content = models.TextField(verbose_name="Contenu")
+    picture = models.ImageField(blank=True)
     
     class Meta:
         ordering = ["-date"] #Permet d'ordonne les article publier par les plus rescent
